@@ -1,4 +1,4 @@
-FROM golang:1.22.9
+FROM golang:1.22.9-alpine
 
 WORKDIR /app
 
@@ -9,6 +9,5 @@ RUN go mod download
 COPY *.go ./
 
 RUN CGO_ENABLED=0 GOOS=linux go build -o /service
-
 
 CMD ["/service"]
